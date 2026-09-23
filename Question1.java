@@ -22,7 +22,7 @@ public class Question1 {
     public static Part readCommonDetails(Scanner input) {
         System.out.println("Enter the serial number");
         int serialNumber = input.nextInt();
-        input.nextLine(); // Consume the leftover newline character
+        input.nextLine();
 
         System.out.println("Enter the manufacturer");
         String manufacturer = input.nextLine();
@@ -33,6 +33,8 @@ public class Question1 {
         // Return an instance of the Part class.
         return new Part(color, manufacturer, serialNumber);
     }
+
+    
     public static void main (String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to Great International Technology");
@@ -56,6 +58,7 @@ public class Question1 {
                 Box userBox = new Box(userPart.getColor(), userPart.getManufacturer(), userPart.getSerialNumber(), userMemory);
                 items.add(userBox);
 
+                done();
                 break;
 
             //Screen
@@ -64,10 +67,12 @@ public class Question1 {
 
                 System.out.println("Enter the screen size in inches");
                 int userSize = input.nextInt();
+                input.nextLine();
 
-                Box userScreen = new Box(userPart2.getColor(), userPart2.getManufacturer(), userPart2.getSerialNumber(), userSize);
+                Screen userScreen = new Screen(userPart2.getColor(), userPart2.getManufacturer(), userPart2.getSerialNumber(), userSize);
                 items.add(userScreen);
 
+                done();
                 break;
 
             //Accessory
@@ -77,23 +82,29 @@ public class Question1 {
                 Accessory userAccessory = new Accessory(userPart3.getColor(), userPart3.getManufacturer(), userPart3.getSerialNumber());
                 items.add(userAccessory);
 
+                done();
                 break;
 
             //Delete
             case "d":
                 System.out.println("Enter the serial number");
                 int dSerialNumber = input.nextInt();
+                input.nextLine();
+                boolean found = false;
 
-                for (Part p : items) {
-                   if (p.getSerialNumber() == dSerialNumber) {
-                        items.remove(p);
-                        done();
-                   }
-                   else {
-                    System.out.println("Invalid serial number");
-                   }
+                for (int i = 0; i < items.size(); i++) {
+                    if (items.get(i).getSerialNumber() == dSerialNumber) {
+                        items.remove(i);
+                        found = true;
+                        break;
+                    }
                 }
 
+                if (found) {
+                    done();
+                }else {
+                    System.out.println("Not found");
+                }
                 break;
 
             //List
@@ -102,6 +113,7 @@ public class Question1 {
                     System.out.println(p.toString());
                 }
 
+                done();
                 break;
 
             default:
@@ -109,7 +121,6 @@ public class Question1 {
                 break;
             } 
 
-            done();
             intro();
             response = input.nextLine().toLowerCase();   
         }

@@ -1,9 +1,9 @@
 /*
-Author: Allen Mutiso
-MTSALL002
-22-September-2026
-Child of Part.Java
-Specialization propertie(s): size(int)
+* Author: Allen Mutiso
+* MTSALL002
+* 22-September-2026
+* Child of Part.Java
+* Specialization propertie(s): size(int)
 */
 
 public class Screen extends Part{
@@ -32,20 +32,21 @@ public class Screen extends Part{
 
     //Modifier method
     public  void setSize (int newSize) {this.size = newSize;}
-    
+
     @Override 
     public boolean equals (Object otherObject) {
-        if (otherObject == null) {
-            return false;
-        } 
+        if (otherObject == this) return true; 
+        if (otherObject == null) return false;
+        if (!(otherObject instanceof Screen)) return false;
+
         Screen otherScreen = (Screen) otherObject;
         return (this.getColor().equals(otherScreen.getColor()) &&
         this.getManufacturer().equals(otherScreen.getManufacturer()) &&
-        this.getSerialNumber() == this.getSerialNumber() &&
+        this.getSerialNumber() == otherScreen.getSerialNumber() &&
         this.getSize() == otherScreen.getSize());
     }
 
     public String toString () {
-        return String.format("Box: %d, %s, %s, %d", getSerialNumber(), getManufacturer(), getColor(), getSize());
+        return String.format("Screen: %d, %s, %s, %d", getSerialNumber(), getManufacturer(), getColor(), getSize());
     }
 }

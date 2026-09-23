@@ -48,17 +48,18 @@ public class Part {
 
     //Equals method
     public boolean equals(Object otherObject) {
-        if (otherObject == null) {
-            return false;
-        } 
+        if (otherObject == null) return false;
+        if (otherObject == this) return true;
+        if (!(otherObject instanceof Part)) return false;
+
         // Casting otherObject to otherItem of type Part.
         Part otherItem = (Part) otherObject;
         return (this.getColor().equals(otherItem.getColor()) &&
         this.getManufacturer().equals(otherItem.getManufacturer()) &&
-        this.getSerialNumber() == this.getSerialNumber());
+        this.getSerialNumber() == otherItem.getSerialNumber());
     }
   
-     public String toString (Part otherPart) {
+     public String toString () {
         return String.format("Box: %d, %s, %s", getSerialNumber(), getManufacturer(), getColor());
     }
 }
