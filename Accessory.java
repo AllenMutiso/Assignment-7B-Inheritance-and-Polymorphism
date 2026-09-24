@@ -8,7 +8,7 @@
 
 public class Accessory extends Part{
     
-    public Accessory(String color, String manufacturer, int serialNumber) {
+    public Accessory(String color, String manufacturer, String serialNumber) {
         super(color, manufacturer, serialNumber);
     }
 
@@ -27,9 +27,9 @@ public class Accessory extends Part{
 
         // Call the equals method in Part.java
         return super.equals(otherObject); 
-}
-
+    }
+    
     public String toString() {
-        return String.format("Accessories: %d, %s, %s", getSerialNumber(), getManufacturer(), getColor());
+        return String.format("Accessories: %s, %s, %s", getSerialNumber(), getManufacturer(), getColor());
     }
 }

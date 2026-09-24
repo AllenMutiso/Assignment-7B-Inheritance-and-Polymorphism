@@ -10,7 +10,7 @@ public class Screen extends Part{
     private int size;
 
     //Standard constuctor
-    public Screen (String color, String manufacturer, int serialNumber, int size) {
+    public Screen (String color, String manufacturer, String serialNumber, int size) {
         super(color, manufacturer, serialNumber);
         this.size = size;
     }
@@ -47,6 +47,6 @@ public class Screen extends Part{
     }
 
     public String toString () {
-        return String.format("Screen: %d, %s, %s, %d", getSerialNumber(), getManufacturer(), getColor(), getSize());
+        return String.format("Screen: %s, %s, %s, %d", getSerialNumber(), getColor(), getManufacturer(), getSize());
     }
 }

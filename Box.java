@@ -9,7 +9,7 @@
 public class Box extends Part {
     private int memory;
         
-    public Box (String color, String manufacturer, int serialNumber, int memory) {
+    public Box (String color, String manufacturer, String serialNumber, int memory) {
         super(color, manufacturer, serialNumber);
         this.memory = memory;
     }
@@ -40,6 +40,6 @@ public class Box extends Part {
     }
 
     public String toString () {
-        return String.format("Box: %d, %s, %s, %d", getSerialNumber(), getManufacturer(), getColor(), getMemory());
+        return String.format("Box: %s, %s, %s, %d", getSerialNumber(), getManufacturer(), getColor(), getMemory());
     } 
 }

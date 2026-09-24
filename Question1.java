@@ -21,8 +21,7 @@ public class Question1 {
 
     public static Part readCommonDetails(Scanner input) {
         System.out.println("Enter the serial number");
-        int serialNumber = input.nextInt();
-        input.nextLine();
+        String serialNumber = input.nextLine();
 
         System.out.println("Enter the manufacturer");
         String manufacturer = input.nextLine();
@@ -88,12 +87,11 @@ public class Question1 {
             //Delete
             case "d":
                 System.out.println("Enter the serial number");
-                int dSerialNumber = input.nextInt();
-                input.nextLine();
+                String dSerialNumber = input.nextLine();
                 boolean found = false;
 
                 for (int i = 0; i < items.size(); i++) {
-                    if (items.get(i).getSerialNumber() == dSerialNumber) {
+                    if (items.get(i).getSerialNumber().equals(dSerialNumber)) {
                         items.remove(i);
                         found = true;
                         break;

@@ -9,10 +9,10 @@ Contains the properties color, manufactrer, serialNumber that are common for all
 public class Part {
     private String color;
     private String manufacturer;
-    private int serialNumber;
+    private String serialNumber;
 
     //Standard constructor
-    public Part(String color, String manufacturer, int serialNumber) {
+    public Part(String color, String manufacturer, String serialNumber) {
         this.color = color;
         this.manufacturer = manufacturer;
         this.serialNumber = serialNumber;
@@ -22,7 +22,7 @@ public class Part {
     public Part () {
         this.color = "";
         this.manufacturer = "";
-        this.serialNumber = 0;
+        this.serialNumber = "";
     }
 
     //Copy constructor.
@@ -39,12 +39,12 @@ public class Part {
     //Accessor methods.
     public String getColor () {return color;}
     public String getManufacturer () {return manufacturer;} 
-    public int getSerialNumber () {return serialNumber;}
+    public String getSerialNumber () {return serialNumber;}
 
     //Setter methods.
     public void setColor (String newColor) {this.color = newColor;}
     public void setManufacturer(String newManufacturer) {this.manufacturer = newManufacturer;}
-    public void setSerialNumber(int newSerialNumber) {this.serialNumber = newSerialNumber;}
+    public void setSerialNumber(String newSerialNumber) {this.serialNumber = newSerialNumber;}
 
     //Equals method
     public boolean equals(Object otherObject) {
@@ -56,10 +56,10 @@ public class Part {
         Part otherItem = (Part) otherObject;
         return (this.getColor().equals(otherItem.getColor()) &&
         this.getManufacturer().equals(otherItem.getManufacturer()) &&
-        this.getSerialNumber() == otherItem.getSerialNumber());
+        this.getSerialNumber().equals(otherItem.getSerialNumber()));
     }
   
      public String toString () {
-        return String.format("Box: %d, %s, %s", getSerialNumber(), getManufacturer(), getColor());
+        return String.format("Box: %s, %s, %s", getSerialNumber(), getManufacturer(), getColor());
     }
 }
